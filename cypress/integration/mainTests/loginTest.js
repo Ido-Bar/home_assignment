@@ -21,5 +21,40 @@ describe("loginTest", function () {
     login.checkForLoginError();
     login.clickNotNow();
     home.checkAccount(this.data.username);
+    home.clickAccountLogoButton();
+    home.clickAccountLogOut();
+    home.clickReLogin();
   });
+
+  it("Signs into an instagram account with the wrong username and checks if login was successful", function () {
+    const login = new loginPage();
+    const home = new homePage();
+
+    travelUtils.visitInstagram();
+    login.enterUsername(this.data.wrongUsername);
+    login.enterPassword(this.data.password);
+    login.clickLogIn();
+    login.checkForLoginError();
+    login.clickNotNow();
+    home.checkAccount(this.data.username);
+    home.clickAccountLogoButton();
+    home.clickAccountLogOut();
+    home.clickReLogin();
+  })
+  
+  it("Signs into an Instagram account with the wrong password and checks if login was successful", function () {
+    const login = new loginPage();
+    const home = new homePage();
+
+    travelUtils.visitInstagram();
+    login.enterUsername(this.data.username);
+    login.enterPassword(this.data.WrongPassword);
+    login.clickLogIn();
+    login.checkForLoginError();
+    login.clickNotNow();
+    home.checkAccount(this.data.username);
+    home.clickAccountLogoButton();
+    home.clickAccountLogOut();
+    home.clickReLogin();
+  })
 });

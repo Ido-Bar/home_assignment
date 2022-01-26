@@ -3,16 +3,16 @@
 class homePage {
   accountButton = ".gmFkV";
   homePageButton = ".J5g42 > :nth-child(1) > div > a > ._8-yf5 > path";
-  accountButton = "._2dbep.qNELH";
+  accountLogoButton = "span[class='_2dbep qNELH']";
   logOutButton = ":nth-child(6) > .rBNOH";
   loginButton = ".aOOlW";
 
   checkAccount(username) {
-    cy.get(this.accountButton).should("have.text", username);
+    cy.get(this.accountButton).wait(200).should("have.text", username);
   }
 
   clickAccountLogoButton() {
-    cy.get(this.accountButton).click();
+    cy.get(this.accountLogoButton).click();
   } 
 
   clickAccountLogOut() {

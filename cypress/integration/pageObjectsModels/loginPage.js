@@ -16,7 +16,7 @@ class loginPage {
   }
 
   clickLogIn() {
-    cy.get(this.loginButton).click().wait(2000).should("not.exist");
+    cy.get(this.loginButton).click().wait(2000);
   }
 
   checkForLoginError() {

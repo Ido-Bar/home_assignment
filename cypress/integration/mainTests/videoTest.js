@@ -48,5 +48,9 @@ describe("videoTest", function () {
     account.checkIfVideoRuns();
     account.stopVideo();
     account.checkIfVideoStopped();
+    account.goToPreviousPage();
+    home.clickAccountLogoButton();
+    home.clickAccountLogOut();
+    home.clickReLogin();
   });
 });
