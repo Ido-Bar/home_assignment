@@ -5,6 +5,7 @@ class loginPage {
   passwordField = "input[name='password']";
   loginButton = "button[type='submit'] div";
   notNowButton = "div[class='cmbtv'] button[type='button']";
+  loginError = "[data-testid='login-error-message']"
 
   enterUsername(usernameText) {
     cy.get(this.usernameField).type(usernameText);
@@ -16,6 +17,10 @@ class loginPage {
 
   clickLogIn() {
     cy.get(this.loginButton).click().wait(2000).should("not.exist");
+  }
+
+  checkForLoginError() {
+    cy.get(this.loginError).should("not.exist");
   }
 
   clickNotNow() {

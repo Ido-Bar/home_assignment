@@ -18,6 +18,7 @@ describe("loginTest", function () {
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.password);
     login.clickLogIn();
+    login.checkForLoginError();
     login.clickNotNow();
     home.checkAccount(this.data.username);
   });
