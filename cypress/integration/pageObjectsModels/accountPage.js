@@ -1,29 +1,32 @@
 /// <reference types="cypress" />
 
 class accountPage {
-  videosTab = "a[class='_9VEo1 '] span[class='PJXu4']";
-  firstVideo =
-    "[href='/tv/CZMHKClrvej/'] > .A-NpN > .JB3Yj > .T1pqg > .qn-0x > .o53Uu";
-  video = "video[type='video/mp4']";
-  $video = "$('video[type='video/mp4']'')";
-  commentButton = "span[class='_15y0l'] button[type='button']";
-  postButton = "button[type='submit']";
+  videosTabSelector = "a[class='_9VEo1 '] span[class='PJXu4']";
+  firstVideoSelector = "[href='/tv/CZMHKClrvej/'] > .A-NpN > .JB3Yj > .T1pqg > .qn-0x > .o53Uu";
+  videoSelector = "video[type='video/mp4']";
+  $videoSelector = "$('video[type='video/mp4']'')";
+  commentButtonSelector = "span[class='_15y0l'] button[type='button']";
+  postButtonSelector = "button[type='submit']";
+  commentSelector = "ul:nth-child(2)";
+  replyButtonSelector = ".FH9sR";
+  likeButtonSelector = ".fr66n > .wpO6b";
+  $likeButtonSelector = "$(span[class='fr66n'] button[type='button'])";
 
   clickVideosTab() {
-    cy.get(this.videosTab).click();
+    cy.get(this.videosTabSelector).click();
   }
 
   clickOnFirstVideo() {
-    cy.get(this.firstVideo).click({ force: true });
+    cy.get(this.firstVideoSelector).click({ force: true });
   }
 
   checkIfVideoRuns() {
-    cy.get(this.video).wait(100).should("have.prop", "paused", false);
+    cy.get(this.videoSelector).wait(100).should("have.prop", "paused", false);
   }
 
   stopVideo() {
-    cy.get(this.video).then(($video) => {
-      $video[0].pause();
+    cy.get(this.videoSelector).then(($videoSelector) => {
+      $videoSelector[0].pause();
     });
   }
 
@@ -32,12 +35,26 @@ class accountPage {
   }
 
   checkIfVideoStopped() {
-    cy.get(this.video).wait(100).should("have.prop", "paused", true);
+    cy.get(this.videoSelector).wait(100).should("have.prop", "paused", true);
   }
 
-  commentTheVideo() {
-    cy.get(this.commentButton).wait(3000).type("this is an automated comment");
-    cy.get(this.postButton).click();
+  postComment() {
+    cy.get(this.commentButtonSelector).wait(3000).type("this is an automated comment");
+    cy.get(this.postButtonSelector).click();
+  }
+
+  replyComment() {
+    cy.get(this.commentSelector).find(this.replyButtonSelector);
+    cy.get(this.commentButtonSelector).wait(3000).type("this is an automated comment");
+    cy.get(this.postButtonSelector).click();
+  }
+
+  checkIfLiked() {
+    cy.get(this.likeButtonSelector).then(($likeButtonSelector) => {
+      if ($likeButtonSelector.hasClass("disabled")) {
+        cy.click().should("have.class", "active");
+      }
+    });
   }
 }
 

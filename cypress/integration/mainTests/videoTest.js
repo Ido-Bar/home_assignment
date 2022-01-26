@@ -5,13 +5,13 @@ import loginPage from "../pageObjectsModels/loginPage.js";
 import homePage from "../pageObjectsModels/homePage.js";
 
 describe("videoTest", function () {
-  before(function () {
+    beforeEach(function () {
     cy.fixture("userData").then((data) => {
       this.data = data;
     });
   });
 
-  it("Finds a video and checks if it runs", function () {
+  it("Finds a video and checks if it runs by default", function () {
     const account = new accountPage();
     const login = new loginPage();
     const home = new homePage();
@@ -20,7 +20,7 @@ describe("videoTest", function () {
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.password);
     login.clickLogIn();
-    login.checkForLoginError();
+    login.checkIfLoginErrorIsNotExist();
     login.clickNotNow();
     travelUtils.visitUser();
     account.clickVideosTab();
@@ -35,12 +35,13 @@ describe("videoTest", function () {
   it("Stops the video, then checks if the video is paused", function () {
     const account = new accountPage();
     const login = new loginPage();
+    const home = new homePage();
 
     travelUtils.visitInstagram();
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.password);
     login.clickLogIn();
-    login.checkForLoginError();
+    login.checkIfLoginErrorIsNotExist();
     login.clickNotNow();
     travelUtils.visitUser();
     account.clickVideosTab();

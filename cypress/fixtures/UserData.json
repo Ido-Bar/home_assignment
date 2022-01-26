@@ -1,9 +1,9 @@
 {
   "firstName": "account",
   "lastName": "for qa",
-  "username": "somethingwhatever18",
+  "username": "somethingwhatever120",
   "wrongUsername": "thisIsNotTheRightUsername",
-  "email": "somethingwhatever18@gmail.com",
+  "email": "somethingwhatever120@gmail.com",
   "password": "aVeryStrongPassWord",
   "wrongPassword": "thisPassWordIsWrong"
 }
