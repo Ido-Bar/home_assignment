@@ -21,12 +21,9 @@ describe("loginTest", function () {
     login.checkIfLoginErrorIsNotExist();
     login.clickNotNow();
     home.checkAccount(this.data.username);
-    home.clickAccountLogoButton();
-    home.clickAccountLogOut();
-    home.clickReLogin();
   });
 
-  it("Signs into an Instagram account with the wrong username and checks if login was successful", function () {
+  it("Signs into an Instagram account with the wrong username and checks if login was unsuccessful", function () {
     const login = new loginPage();
     const home = new homePage();
 
@@ -35,9 +32,9 @@ describe("loginTest", function () {
     login.enterPassword(this.data.password);
     login.clickLogIn();
     login.checkIfLoginErrorExists();
-  })
+  });
 
-  it("Signs into an Instagram account with the wrong password and checks if login was successful", function () {
+  it("Signs into an Instagram account with the wrong password and checks if login was unsuccessful", function () {
     const login = new loginPage();
     const home = new homePage();
 
@@ -46,5 +43,5 @@ describe("loginTest", function () {
     login.enterPassword(this.data.wrongPassword);
     login.clickLogIn();
     login.checkIfLoginErrorExists();
-  })
+  });
 });

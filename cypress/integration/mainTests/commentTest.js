@@ -5,7 +5,7 @@ import homePage from "../pageObjectsModels/homePage.js";
 import accountPage from "../pageObjectsModels/accountPage.js";
 
 describe("loginTest", function () {
-    beforeEach(function () {
+  beforeEach(function () {
     cy.fixture("userData").then(function (data) {
       this.data = data;
     });
@@ -47,10 +47,6 @@ describe("loginTest", function () {
     account.clickVideosTab();
     account.clickOnFirstVideo();
     account.replyComment();
-    account.goToPreviousPage();
-    home.clickAccountLogoButton();
-    home.clickAccountLogOut();
-    home.clickReLogin();
   });
 
   it("Goes to a post and leaves a comment", function () {
@@ -68,10 +64,5 @@ describe("loginTest", function () {
     account.clickVideosTab();
     account.clickOnFirstVideo();
     account.postComment();
-    account.goToPreviousPage();
-    home.clickAccountLogoButton();
-    home.clickAccountLogOut();
-    home.clickReLogin();
   });
-
 });

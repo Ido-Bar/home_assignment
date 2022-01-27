@@ -30,10 +30,6 @@ class accountPage {
     });
   }
 
-  goToPreviousPage() {
-    cy.go("back");
-  }
-
   checkIfVideoStopped() {
     cy.get(this.videoSelector).wait(100).should("have.prop", "paused", true);
   }

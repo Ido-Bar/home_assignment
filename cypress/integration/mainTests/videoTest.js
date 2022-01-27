@@ -5,7 +5,7 @@ import loginPage from "../pageObjectsModels/loginPage.js";
 import homePage from "../pageObjectsModels/homePage.js";
 
 describe("videoTest", function () {
-    beforeEach(function () {
+  beforeEach(function () {
     cy.fixture("userData").then((data) => {
       this.data = data;
     });
@@ -26,13 +26,9 @@ describe("videoTest", function () {
     account.clickVideosTab();
     account.clickOnFirstVideo();
     account.checkIfVideoRuns();
-    account.goToPreviousPage();
-    home.clickAccountLogoButton();
-    home.clickAccountLogOut();
-    home.clickReLogin();
   });
 
-  it("Stops the video, then checks if the video is paused", function () {
+  it("Find a video, checks if it runs by default, then stops the video, then checks if the video is paused", function () {
     const account = new accountPage();
     const login = new loginPage();
     const home = new homePage();
@@ -49,9 +45,5 @@ describe("videoTest", function () {
     account.checkIfVideoRuns();
     account.stopVideo();
     account.checkIfVideoStopped();
-    account.goToPreviousPage();
-    home.clickAccountLogoButton();
-    home.clickAccountLogOut();
-    home.clickReLogin();
   });
 });
