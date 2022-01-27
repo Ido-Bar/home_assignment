@@ -2,13 +2,11 @@
 
 class accountPage {
   videoSelector = "video[type='video/mp4']";
-  $videoSelector = "$('video[type='video/mp4']'')";
+  $videojquery = "$('video[type='video/mp4']'')";
   commentButtonSelector = "span[class='_15y0l'] button[type='button']";
   postButtonSelector = "button[type='submit']";
   commentTabSelector = ".Mr508 ";
   replyButtonSelector = ".FH9sR";
-  likeButtonSelector = ".fr66n > .wpO6b";
-  $likeButtonSelector = "$('span[class='fr66n'] button[type='button']'')";
   commentTextFieldSelector = ".Ypffh";
 
   checkIfVideoRuns() {
@@ -16,8 +14,8 @@ class accountPage {
   }
 
   stopVideo() {
-    cy.get(this.videoSelector).then(($videoSelector) => {
-      $videoSelector[0].pause();
+    cy.get(this.videoSelector).then(($videojquery) => {
+      $videojquery[0].pause();
     });
   }
 
@@ -29,7 +27,8 @@ class accountPage {
     cy.get(this.commentButtonSelector)
       .click()
       .wait(3000)
-      .type("this is an automated comment");
+      .type("this is an automated comment")
+      .wait(3000);
     cy.get(this.postButtonSelector).click();
   }
 
@@ -42,19 +41,13 @@ class accountPage {
     cy.get(this.commentButtonSelector)
       .click()
       .wait(3000)
-      .type("this is an automated reply");
-    cy.get(this.commentTextFieldSelector)
-    .should("contain.text","this is an automated reply");
-    cy.get(this.postButtonSelector)
-    .click();
-  }
-
-  setLikeButtonTrue() {
-    cy.get(this.likeButtonSelector).then(($likeButtonSelector) => {
-      if ($likeButtonSelector.should(!"have.prop", "null")) {
-        cy.get(this.likeButtonSelector).click();
-      }
-    });
+      .type("this is an automated reply")
+      .wait(3000);
+    cy.get(this.commentTextFieldSelector).should(
+      "contain.text",
+      "this is an automated reply"
+    );
+    cy.get(this.postButtonSelector).click();
   }
 }
 

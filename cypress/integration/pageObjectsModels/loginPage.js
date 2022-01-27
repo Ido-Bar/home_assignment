@@ -5,7 +5,7 @@ class loginPage {
   passwordFieldSelector = "input[name='password']";
   loginButtonSelector = "button[type='submit'] div";
   notNowButtonSelector = "div[class='cmbtv'] button[type='button']";
-  loginErrorSelector = "[data-testid='login-error-message']"
+  loginErrorSelector = "[data-testid='login-error-message']";
 
   enterUsername(usernameText) {
     cy.get(this.usernameFieldSelector).type(usernameText);

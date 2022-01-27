@@ -10,11 +10,11 @@ describe("loginTest", function () {
     });
   });
 
-  it("signs into an Instagram account and makes sure that the login was successful", function () {
+  it("Signs into an Instagram account and makes sure that the login was successful", function () {
     const login = new loginPage();
     const home = new homePage();
 
-    travelUtils.visitInstagram();
+    travelUtils.visitInstagram(this.data.baseURL);
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.password);
     login.clickLogIn();
@@ -27,7 +27,7 @@ describe("loginTest", function () {
     const login = new loginPage();
     const home = new homePage();
 
-    travelUtils.visitInstagram();
+    travelUtils.visitInstagram(this.data.baseURL);
     login.enterUsername(this.data.wrongUsername);
     login.enterPassword(this.data.password);
     login.clickLogIn();
@@ -38,7 +38,7 @@ describe("loginTest", function () {
     const login = new loginPage();
     const home = new homePage();
 
-    travelUtils.visitInstagram();
+    travelUtils.visitInstagram(this.data.baseURL);
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.wrongPassword);
     login.clickLogIn();

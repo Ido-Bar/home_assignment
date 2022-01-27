@@ -1,6 +1,8 @@
 {
-  "username": "accountforqa",
+  "username" : "anotheruseru123",
   "wrongUsername": "thisIsNotTheRightUsername",
   "password": "aVeryStrongPassWord",
-  "wrongPassword": "thisPassWordIsWrong"
+  "wrongPassword": "thisPassWordIsWrong",
+  "userURL" : "https://www.instagram.com/accountforqa/",
+  "baseURL" : "https://www.instagram.com/"
 }

@@ -1,14 +1,11 @@
 /// <reference types="cypress" />
 
-const baseURL = "https://www.instagram.com/";
-const userURL = "https://www.instagram.com/accountforqa/"
-
-function visitInstagram() {
-  cy.visit(baseURL).wait(100);
+function visitInstagram(baseURL) {
+  cy.visit(baseURL);
 }
 
-function visitUser() {
-  cy.visit(userURL)
+function visitUser(userURL) {
+  cy.visit(userURL);
 }
 
 export default { visitInstagram, visitUser };

@@ -2,14 +2,18 @@
 
 class accountPage {
   videosTabSelector = "a[class='_9VEo1 '] span[class='PJXu4']";
-  firstVideoSelector = "[href='/tv/CZMHKClrvej/'] > .A-NpN > .JB3Yj > .T1pqg > .qn-0x > .o53Uu";
+  firstVideosLineSelector = ".Nnq7C";
+  firstVideoSelector = "._bz0w";
 
   clickVideosTab() {
-    cy.get(this.videosTabSelector).click();
+    cy.get(this.videosTabSelector).last().click({ force: true });
   }
 
   clickOnFirstVideo() {
-    cy.get(this.firstVideoSelector).click({ force: true });
+    cy.get(this.firstVideosLineSelector)
+      .find(this.firstVideoSelector)
+      .first()
+      .click({ force: true });
   }
 }
 

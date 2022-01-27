@@ -16,13 +16,13 @@ describe("videoTest", function () {
     const login = new loginPage();
     const post = new postPage();
 
-    travelUtils.visitInstagram();
+    travelUtils.visitInstagram(this.data.baseURL);
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.password);
     login.clickLogIn();
     login.checkIfLoginErrorIsNotExist();
     login.clickNotNow();
-    travelUtils.visitUser();
+    travelUtils.visitUser(this.data.userURL);
     account.clickVideosTab();
     account.clickOnFirstVideo();
     post.checkIfVideoRuns();
@@ -33,13 +33,13 @@ describe("videoTest", function () {
     const login = new loginPage();
     const post = new postPage();
 
-    travelUtils.visitInstagram();
+    travelUtils.visitInstagram(this.data.baseURL);
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.password);
     login.clickLogIn();
     login.checkIfLoginErrorIsNotExist();
     login.clickNotNow();
-    travelUtils.visitUser();
+    travelUtils.visitUser(this.data.userURL);
     account.clickVideosTab();
     account.clickOnFirstVideo();
     post.checkIfVideoRuns();
