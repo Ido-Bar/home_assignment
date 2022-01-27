@@ -11,7 +11,7 @@ describe("loginTest", function () {
     });
   });
 
-  it("Goes to a post and leaves a like", function () {
+  it("Goes to a post and leaves a comment", function () {
     const login = new loginPage();
     const account = new accountPage();
     const post = new postPage();
@@ -20,12 +20,12 @@ describe("loginTest", function () {
     login.enterUsername(this.data.username);
     login.enterPassword(this.data.password);
     login.clickLogIn();
-    login.checkIfLoginErrorExists();
+    login.checkIfLoginErrorIsNotExist();
     login.clickNotNow();
     travelUtils.visitUser();
     account.clickVideosTab();
     account.clickOnFirstVideo();
-    post.checkIfLiked();
+    post.postComment();
   });
 
   it("Goes to a comment and leaves a reply", function () {
@@ -45,7 +45,7 @@ describe("loginTest", function () {
     post.replyComment();
   });
 
-  it("Goes to a post and leaves a comment", function () {
+  it("Goes to a post and leaves a like", function () {
     const login = new loginPage();
     const account = new accountPage();
     const post = new postPage();
@@ -59,6 +59,6 @@ describe("loginTest", function () {
     travelUtils.visitUser();
     account.clickVideosTab();
     account.clickOnFirstVideo();
-    post.postComment();
+    post.setLikeButtonTrue();
   });
 });
