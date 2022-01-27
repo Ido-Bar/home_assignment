@@ -29,6 +29,10 @@ class accountPage {
       .wait(3000)
       .type("this is an automated comment")
       .wait(3000);
+      cy.get(this.commentTextFieldSelector).should(
+        "contain.text",
+        "this is an automated comment"
+      );
     cy.get(this.postButtonSelector).click();
   }
 
